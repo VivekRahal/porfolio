@@ -6,248 +6,376 @@
 <title>Vivek Kumar Singh — ML Engineer</title>
 <meta name="description" content="Portfolio of Vivek Kumar Singh — Python ML Engineer specializing in search, ranking, and marketplace ML systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Sora:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#0a0a0f;--bg2:#111118;--bg3:#1a1a24;
-  --text:#e8e6e3;--text-dim:#8a8a9a;--text-muted:#55556a;
-  --accent:#00e5a0;--accent2:#00b8d4;--accent-glow:rgba(0,229,160,.12);
-  --serif:'DM Serif Display',Georgia,serif;
-  --sans:'Outfit',system-ui,sans-serif;
-  --mono:'JetBrains Mono',monospace;
+  --white:#ffffff;--cream:#fefdf8;--cream2:#faf8f0;--cream3:#f5f2e8;
+  --sand:#ede8d8;--sand2:#ddd6c0;
+  --green:#16a34a;--green-light:#22c55e;--green-pale:#dcfce7;--green-deep:#15803d;
+  --yellow:#eab308;--yellow-light:#fef08a;--yellow-pale:#fefce8;--yellow-warm:#f59e0b;
+  --text:#1a1a1a;--text2:#3a3a3a;--text-dim:#6b7280;--text-muted:#9ca3af;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Sora',system-ui,sans-serif;
+  --mono:'Space Mono',monospace;
   --ease:cubic-bezier(.22,1,.36,1);
+  --shadow-sm:0 1px 3px rgba(0,0,0,.06);
+  --shadow:0 4px 20px rgba(0,0,0,.06);
+  --shadow-lg:0 12px 40px rgba(0,0,0,.08);
 }
-html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--bg3) var(--bg)}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;font-weight:300}
-::selection{background:var(--accent);color:var(--bg)}
-a{color:var(--accent);text-decoration:none;transition:color .3s}
-a:hover{color:var(--accent2)}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--text);line-height:1.65;overflow-x:hidden;font-weight:400;font-size:15px}
+::selection{background:var(--yellow-light);color:var(--text)}
+a{color:var(--green);text-decoration:none;transition:all .3s}
+a:hover{color:var(--green-deep)}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(20px);background:rgba(10,10,15,.7);border-bottom:1px solid rgba(255,255,255,.04);transition:all .4s}
-nav.scrolled{padding:.8rem 2rem;background:rgba(10,10,15,.92)}
-.nav-logo{font-family:var(--mono);font-size:.85rem;font-weight:500;color:var(--accent);letter-spacing:2px}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:var(--text-dim);font-size:.82rem;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;position:relative;padding-bottom:2px}
-.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--accent);transition:width .3s var(--ease)}
+/* === NAV === */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(254,253,248,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,.04);transition:all .4s}
+nav.scrolled{box-shadow:var(--shadow-sm)}
+.nav-brand{display:flex;align-items:center;gap:.6rem}
+.nav-dot{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--yellow),var(--green-light));display:flex;align-items:center;justify-content:center}
+.nav-dot span{font-family:var(--mono);font-size:.6rem;font-weight:700;color:var(--white)}
+.nav-name{font-family:var(--serif);font-size:.95rem;font-weight:600;color:var(--text)}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{color:var(--text-dim);font-size:.78rem;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--green);border-radius:2px;transition:width .3s var(--ease)}
 .nav-links a:hover{color:var(--text)}
 .nav-links a:hover::after{width:100%}
+.nav-cta{padding:.5rem 1.2rem;background:var(--text);color:var(--white);border-radius:100px;font-size:.78rem;font-weight:500;letter-spacing:.5px;transition:all .3s}
+.nav-cta:hover{background:var(--green);color:var(--white);transform:translateY(-1px);box-shadow:0 4px 15px rgba(22,163,74,.25)}
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;padding:6rem 2rem 4rem}
-.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,229,160,.06) 0%,transparent 70%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-10%;left:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(0,184,212,.04) 0%,transparent 70%);pointer-events:none}
-.hero-inner{max-width:900px;position:relative}
-.hero-label{font-family:var(--mono);font-size:.75rem;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s var(--ease) .2s forwards}
-.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,7vw,5rem);line-height:1.08;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s var(--ease) .4s forwards}
-.hero h1 .highlight{color:var(--accent);position:relative;display:inline-block}
-.hero h1 .highlight::after{content:'';position:absolute;bottom:4px;left:0;right:0;height:2px;background:var(--accent);opacity:.3}
-.hero-sub{font-size:1.15rem;color:var(--text-dim);max-width:600px;line-height:1.7;opacity:0;animation:fadeUp .8s var(--ease) .6s forwards}
-.hero-cta{display:flex;gap:1rem;margin-top:2.5rem;opacity:0;animation:fadeUp .8s var(--ease) .8s forwards;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;border-radius:4px;font-family:var(--sans);font-size:.85rem;font-weight:500;letter-spacing:.5px;transition:all .3s var(--ease);cursor:pointer;border:none}
-.btn-primary{background:var(--accent);color:var(--bg)}
-.btn-primary:hover{background:#00f0aa;color:var(--bg);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,229,160,.2)}
-.btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.15)}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+/* === HERO === */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:7rem 2.5rem 5rem;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-bg .blob1{position:absolute;top:-15%;right:-5%;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,var(--yellow-pale) 0%,transparent 70%);opacity:.7}
+.hero-bg .blob2{position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,var(--green-pale) 0%,transparent 70%);opacity:.6}
+.hero-bg .blob3{position:absolute;top:30%;left:40%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(254,240,138,.3) 0%,transparent 70%)}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-content{opacity:0;animation:fadeUp .9s var(--ease) .15s forwards}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;background:var(--green-pale);border:1px solid rgba(22,163,74,.15);border-radius:100px;font-size:.75rem;font-weight:500;color:var(--green-deep);margin-bottom:1.5rem}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s ease infinite}
+.hero h1{font-family:var(--serif);font-size:clamp(2.4rem,5.5vw,3.8rem);line-height:1.12;margin-bottom:1.2rem;color:var(--text)}
+.hero h1 em{font-style:italic;color:var(--green);position:relative}
+.hero h1 em::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:8px;background:var(--yellow-light);border-radius:4px;z-index:-1;opacity:.7}
+.hero-sub{font-size:1rem;color:var(--text-dim);max-width:480px;line-height:1.75;margin-bottom:2rem}
+.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;border-radius:100px;font-family:var(--sans);font-size:.82rem;font-weight:500;transition:all .3s var(--ease);cursor:pointer;border:none;letter-spacing:.3px}
+.btn-primary{background:var(--text);color:var(--white)}
+.btn-primary:hover{background:var(--green);transform:translateY(-2px);box-shadow:0 8px 25px rgba(22,163,74,.2)}
+.btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--sand2)}
+.btn-outline:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
+.hero-social{display:flex;gap:1rem}
+.hero-social a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--sand2);color:var(--text-dim);font-size:.75rem;font-family:var(--mono);transition:all .3s}
+.hero-social a:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px);box-shadow:var(--shadow)}
 
-.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeUp .8s var(--ease) 1.2s forwards}
-.scroll-hint span{font-size:.7rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase}
-.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2s ease infinite}
+/* Hero visual */
+.hero-visual{opacity:0;animation:fadeUp .9s var(--ease) .4s forwards;position:relative}
+.hero-card{background:var(--white);border-radius:20px;padding:2rem;box-shadow:var(--shadow-lg);border:1px solid rgba(0,0,0,.04);position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--yellow),var(--green-light))}
+.hero-card-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--cream3)}
+.avatar{width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,var(--yellow-light),var(--green-pale));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:1rem;color:var(--green-deep)}
+.hero-card-name{font-weight:600;font-size:.9rem}
+.hero-card-title{font-size:.75rem;color:var(--text-muted)}
+.code-block{background:var(--cream2);border-radius:10px;padding:1rem 1.2rem;font-family:var(--mono);font-size:.7rem;line-height:1.9;color:var(--text2);overflow:hidden}
+.code-block .kw{color:var(--green)}
+.code-block .str{color:var(--yellow-warm)}
+.code-block .cmt{color:var(--text-muted);font-style:italic}
+.mini-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;margin-top:1.2rem}
+.mini-stat{text-align:center;padding:.8rem;background:var(--cream2);border-radius:10px}
+.mini-stat .num{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--green)}
+.mini-stat .lbl{font-size:.65rem;color:var(--text-muted);margin-top:.15rem;letter-spacing:.5px;text-transform:uppercase}
 
-/* SECTIONS */
-.section{padding:6rem 2rem}
+/* Floating badges around hero card */
+.float-badge{position:absolute;padding:.4rem .8rem;background:var(--white);border-radius:100px;font-size:.68rem;font-weight:500;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);white-space:nowrap;z-index:2}
+.float-badge.fb1{top:-10px;right:20px;color:var(--green);animation:floatY 4s ease infinite}
+.float-badge.fb2{bottom:30px;left:-15px;color:var(--yellow-warm);animation:floatY 5s ease .5s infinite}
+.float-badge.fb3{bottom:-10px;right:40px;color:var(--green-deep);animation:floatY 4.5s ease 1s infinite}
+
+/* === SECTIONS === */
+.section{padding:5.5rem 2.5rem}
 .section-inner{max-width:1000px;margin:0 auto}
-.section-label{font-family:var(--mono);font-size:.7rem;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:.8rem}
-.section-title{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1rem;line-height:1.2}
-.section-desc{color:var(--text-dim);max-width:550px;margin-bottom:3rem;font-size:.95rem}
-.divider{width:60px;height:1px;background:linear-gradient(to right,var(--accent),transparent);margin-bottom:3rem}
+.section-header{margin-bottom:3rem}
+.section-num{font-family:var(--mono);font-size:.7rem;color:var(--green);letter-spacing:2px;margin-bottom:.4rem}
+.section-title{font-family:var(--serif);font-size:clamp(1.7rem,3.5vw,2.4rem);line-height:1.2;margin-bottom:.6rem}
+.section-subtitle{color:var(--text-dim);font-size:.92rem;max-width:500px}
+.accent-line{display:flex;align-items:center;gap:.5rem;margin-top:1rem}
+.accent-line span{width:40px;height:3px;border-radius:3px}
+.accent-line .al1{background:var(--yellow)}
+.accent-line .al2{background:var(--green-light);width:20px}
+.accent-line .al3{background:var(--green-pale);width:12px}
 
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.about-text p{color:var(--text-dim);margin-bottom:1.2rem;font-size:.95rem}
-.about-text strong{color:var(--text);font-weight:500}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.stat{padding:1.5rem;background:var(--bg2);border:1px solid rgba(255,255,255,.04);border-radius:8px;transition:all .3s}
-.stat:hover{border-color:rgba(0,229,160,.15);transform:translateY(-2px)}
-.stat-num{font-family:var(--serif);font-size:2rem;color:var(--accent);line-height:1}
-.stat-label{font-size:.78rem;color:var(--text-muted);margin-top:.4rem;letter-spacing:.5px}
+/* === ABOUT === */
+.about-section{background:var(--white)}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.about-text p{color:var(--text2);margin-bottom:1rem;font-size:.92rem;line-height:1.8}
+.about-text strong{color:var(--text);font-weight:600}
+.about-highlights{display:flex;flex-direction:column;gap:1rem}
+.highlight-card{display:flex;align-items:start;gap:1rem;padding:1.2rem 1.4rem;background:var(--cream);border-radius:14px;border:1px solid transparent;transition:all .35s var(--ease)}
+.highlight-card:hover{border-color:rgba(22,163,74,.12);transform:translateY(-2px);box-shadow:var(--shadow)}
+.hc-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.hc-icon.yi{background:var(--yellow-pale)}
+.hc-icon.gi{background:var(--green-pale)}
+.hc-title{font-size:.85rem;font-weight:600;margin-bottom:.15rem}
+.hc-desc{font-size:.78rem;color:var(--text-dim);line-height:1.5}
 
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
-.skill-card{padding:1.5rem;background:var(--bg2);border:1px solid rgba(255,255,255,.04);border-radius:8px;transition:all .4s var(--ease)}
-.skill-card:hover{border-color:rgba(0,229,160,.2);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
-.skill-card h3{font-size:.85rem;font-weight:600;margin-bottom:1rem;color:var(--accent);letter-spacing:.5px;display:flex;align-items:center;gap:.5rem}
-.skill-card h3 .icon{font-size:1.1rem}
-.skill-tags{display:flex;flex-wrap:wrap;gap:.4rem}
-.tag{padding:.3rem .7rem;background:rgba(255,255,255,.04);border-radius:3px;font-size:.75rem;color:var(--text-dim);font-family:var(--mono);transition:all .2s}
-.skill-card:hover .tag{background:var(--accent-glow);color:var(--accent)}
+/* === SKILLS === */
+.skills-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.skill-card{padding:1.6rem;background:var(--white);border-radius:16px;border:1px solid rgba(0,0,0,.04);transition:all .4s var(--ease);position:relative;overflow:hidden}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:3px 3px 0 0;opacity:0;transition:opacity .3s}
+.skill-card:nth-child(odd)::before{background:linear-gradient(90deg,var(--green-light),var(--yellow))}
+.skill-card:nth-child(even)::before{background:linear-gradient(90deg,var(--yellow),var(--green-light))}
+.skill-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
+.skill-card:hover::before{opacity:1}
+.sk-title{font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem}
+.sk-emoji{font-size:1rem}
+.sk-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.sk-tag{padding:.25rem .6rem;background:var(--cream2);border-radius:6px;font-size:.7rem;color:var(--text2);font-weight:400;transition:all .2s}
+.skill-card:hover .sk-tag{background:var(--green-pale);color:var(--green-deep)}
 
-/* EXPERIENCE */
-.timeline{position:relative;padding-left:2rem}
-.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--accent),var(--bg3))}
-.timeline-item{position:relative;margin-bottom:3rem;padding-left:2rem}
-.timeline-item::before{content:'';position:absolute;left:-2.35rem;top:.5rem;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 20px rgba(0,229,160,.3)}
-.timeline-role{font-size:1.15rem;font-weight:600;margin-bottom:.2rem}
-.timeline-company{color:var(--accent);font-size:.9rem;margin-bottom:.1rem}
-.timeline-date{font-family:var(--mono);font-size:.75rem;color:var(--text-muted);letter-spacing:1px;margin-bottom:.8rem}
-.timeline-desc{color:var(--text-dim);font-size:.88rem}
-.timeline-desc li{margin-bottom:.4rem;list-style:none;padding-left:1rem;position:relative}
-.timeline-desc li::before{content:'›';position:absolute;left:0;color:var(--accent)}
+/* === EXPERIENCE === */
+.exp-section{background:var(--white)}
+.exp-list{display:flex;flex-direction:column;gap:0}
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:2.5rem;padding:2.2rem 0;border-bottom:1px solid var(--cream3);position:relative}
+.exp-item:last-child{border-bottom:none}
+.exp-left{}
+.exp-date{font-family:var(--mono);font-size:.72rem;color:var(--text-muted);letter-spacing:1px;margin-bottom:.3rem}
+.exp-company{font-weight:600;font-size:.9rem;color:var(--green-deep)}
+.exp-loc{font-size:.75rem;color:var(--text-muted)}
+.exp-role{font-family:var(--serif);font-size:1.15rem;font-weight:600;margin-bottom:.8rem}
+.exp-bullets{list-style:none}
+.exp-bullets li{position:relative;padding-left:1.2rem;margin-bottom:.5rem;font-size:.85rem;color:var(--text2);line-height:1.7}
+.exp-bullets li::before{content:'';position:absolute;left:0;top:.55rem;width:6px;height:6px;border-radius:50%;border:1.5px solid var(--green)}
+.exp-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.8rem}
+.exp-tag{padding:.2rem .55rem;background:var(--yellow-pale);border-radius:5px;font-size:.68rem;color:var(--yellow-warm);font-weight:500}
 
-/* PROJECTS */
+/* === PROJECTS === */
 .projects-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
-.project-card{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:start;padding:2rem;background:var(--bg2);border:1px solid rgba(255,255,255,.04);border-radius:8px;transition:all .4s var(--ease)}
-.project-card:hover{border-color:rgba(0,229,160,.15);transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,0,0,.3)}
-.project-num{font-family:var(--serif);font-size:2rem;color:var(--bg3);font-weight:400;line-height:1;min-width:2.5rem}
-.project-card:hover .project-num{color:var(--accent)}
-.project-info h3{font-size:1.05rem;font-weight:600;margin-bottom:.4rem}
-.project-info p{color:var(--text-dim);font-size:.85rem;line-height:1.6}
-.project-tech{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.8rem}
-.project-link{align-self:center}
-.project-link a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid rgba(255,255,255,.1);border-radius:50%;color:var(--text-dim);font-size:.85rem;transition:all .3s}
-.project-link a:hover{border-color:var(--accent);color:var(--accent);transform:scale(1.1)}
+.proj-card{display:grid;grid-template-columns:80px 1fr auto;gap:1.5rem;align-items:start;padding:2rem;background:var(--white);border-radius:16px;border:1px solid rgba(0,0,0,.04);transition:all .4s var(--ease)}
+.proj-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:transparent}
+.proj-num-wrap{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.proj-num{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--cream3);line-height:1;transition:color .3s}
+.proj-card:hover .proj-num{color:var(--green)}
+.proj-dot{width:8px;height:8px;border-radius:50%;background:var(--sand2);transition:background .3s}
+.proj-card:hover .proj-dot{background:var(--yellow)}
+.proj-info h3{font-size:1.05rem;font-weight:600;margin-bottom:.4rem}
+.proj-info p{color:var(--text-dim);font-size:.84rem;line-height:1.7}
+.proj-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.8rem}
+.proj-link{align-self:center}
+.proj-link a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--cream2);color:var(--text-dim);font-size:.9rem;transition:all .3s}
+.proj-link a:hover{background:var(--green);color:var(--white);transform:scale(1.05);box-shadow:0 4px 15px rgba(22,163,74,.2)}
 
-/* EDUCATION */
-.edu-list{display:flex;flex-direction:column;gap:1.2rem}
-.edu-item{display:flex;justify-content:space-between;align-items:start;padding:1.5rem;background:var(--bg2);border:1px solid rgba(255,255,255,.04);border-radius:8px;flex-wrap:wrap;gap:1rem}
-.edu-item h3{font-size:1rem;font-weight:600}
-.edu-item .school{color:var(--text-dim);font-size:.85rem;margin-top:.2rem}
-.edu-item .focus{font-family:var(--mono);font-size:.72rem;color:var(--accent);margin-top:.4rem;letter-spacing:.5px}
-.edu-date{font-family:var(--mono);font-size:.78rem;color:var(--text-muted);letter-spacing:1px;white-space:nowrap}
+/* === EDUCATION === */
+.edu-section{background:var(--white)}
+.edu-grid{display:flex;flex-direction:column;gap:1rem}
+.edu-card{display:flex;justify-content:space-between;align-items:start;padding:1.5rem 1.8rem;background:var(--cream);border-radius:14px;border-left:3px solid var(--cream3);transition:all .35s var(--ease);flex-wrap:wrap;gap:1rem}
+.edu-card:hover{border-left-color:var(--green);transform:translateX(4px)}
+.edu-card:nth-child(1){border-left-color:var(--green)}
+.edu-card h3{font-size:.95rem;font-weight:600}
+.edu-school{color:var(--text-dim);font-size:.82rem;margin-top:.15rem}
+.edu-focus{font-family:var(--mono);font-size:.68rem;color:var(--green);margin-top:.35rem;letter-spacing:.3px}
+.edu-year{font-family:var(--mono);font-size:.75rem;color:var(--text-muted);letter-spacing:1px;white-space:nowrap;padding:.3rem .8rem;background:var(--white);border-radius:8px}
 
-/* CONTACT */
-.contact-section{background:var(--bg2);border-top:1px solid rgba(255,255,255,.04)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.contact-links{display:flex;flex-direction:column;gap:1rem}
-.contact-link{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--bg);border:1px solid rgba(255,255,255,.04);border-radius:6px;transition:all .3s;text-decoration:none}
-.contact-link:hover{border-color:rgba(0,229,160,.2);transform:translateX(4px)}
-.contact-link .c-icon{font-size:1.2rem;color:var(--accent)}
-.contact-link .c-label{font-size:.75rem;color:var(--text-muted);display:block}
-.contact-link .c-value{font-size:.9rem;color:var(--text)}
+/* === CONTACT === */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.contact-text{font-size:1rem;color:var(--text2);line-height:1.8;margin-bottom:1.5rem}
+.contact-text em{font-family:var(--serif);color:var(--green);font-style:italic}
+.contact-cards{display:flex;flex-direction:column;gap:.8rem}
+.cc{display:flex;align-items:center;gap:1rem;padding:1rem 1.3rem;background:var(--white);border-radius:12px;border:1px solid rgba(0,0,0,.04);transition:all .3s;text-decoration:none}
+.cc:hover{border-color:rgba(22,163,74,.15);transform:translateX(4px);box-shadow:var(--shadow)}
+.cc-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.cc-icon.em{background:var(--yellow-pale)}
+.cc-icon.ph{background:var(--green-pale)}
+.cc-icon.li{background:#e8f4fd}
+.cc-icon.gh{background:var(--cream3)}
+.cc-label{font-size:.7rem;color:var(--text-muted);letter-spacing:.5px}
+.cc-value{font-size:.85rem;color:var(--text);font-weight:500}
 
-/* FOOTER */
-footer{padding:2rem;text-align:center;font-size:.75rem;color:var(--text-muted);border-top:1px solid rgba(255,255,255,.03)}
+/* === FOOTER === */
+footer{padding:2.5rem;text-align:center;border-top:1px solid var(--cream3)}
+.footer-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-text{font-size:.75rem;color:var(--text-muted)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:.75rem;color:var(--text-dim)}
+.footer-links a:hover{color:var(--green)}
 
-/* REVEAL ANIMATION */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+/* === ANIMATIONS === */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
-@keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .nav-links{display:none}
-  .about-grid,.contact-grid{grid-template-columns:1fr}
-  .project-card{grid-template-columns:1fr;gap:1rem}
-  .project-num{display:none}
-  .project-link{justify-self:start}
-  .section{padding:4rem 1.2rem}
-  .hero{padding:5rem 1.2rem 3rem}
-  .timeline{padding-left:1.5rem}
-  .timeline-item{padding-left:1.5rem}
+/* === RESPONSIVE === */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:2rem}
+  .hero-visual{max-width:420px}
+  .about-layout{grid-template-columns:1fr}
+  .skills-wrap{grid-template-columns:1fr 1fr}
+  .exp-item{grid-template-columns:1fr;gap:.8rem}
+  .contact-wrap{grid-template-columns:1fr}
 }
-
-/* GRAIN OVERLAY */
-body::after{content:'';position:fixed;inset:0;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");z-index:9999}
+@media(max-width:600px){
+  nav{padding:.8rem 1.2rem}
+  .nav-links,.nav-cta{display:none}
+  .section{padding:3.5rem 1.2rem}
+  .hero{padding:5rem 1.2rem 3rem}
+  .skills-wrap{grid-template-columns:1fr}
+  .proj-card{grid-template-columns:1fr;gap:.8rem}
+  .proj-num-wrap{display:none}
+  .proj-link{justify-self:start}
+  .mini-stats{grid-template-columns:1fr 1fr 1fr}
+  .footer-inner{flex-direction:column;text-align:center}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-logo">VKS_</div>
+  <div class="nav-brand">
+    <div class="nav-dot"><span>V</span></div>
+    <div class="nav-name">Vivek Singh</div>
+  </div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#education">Education</a></li>
   </ul>
+  <a href="#contact" class="nav-cta">Contact Me</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-label">ML Engineer — Salford, UK</div>
-    <h1>I build <span class="highlight">intelligent systems</span> that search, rank, and personalise at scale.</h1>
-    <p class="hero-sub">Python ML Engineer with production experience shipping embedding-based retrieval pipelines, real-time inference APIs, and computer vision systems on AWS.</p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View Work ↓</a>
-      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
-    </div>
+  <div class="hero-bg">
+    <div class="blob1"></div>
+    <div class="blob2"></div>
+    <div class="blob3"></div>
   </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span> Open to ML Engineer roles in UK</div>
+      <h1>I build ML systems that <em>search, rank</em> & personalise at scale.</h1>
+      <p class="hero-sub">Python ML Engineer with production experience shipping embedding pipelines, real-time inference APIs, and computer vision systems on AWS.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View My Work ↓</a>
+        <a href="#contact" class="btn btn-outline">Let's Talk</a>
+      </div>
+      <div class="hero-social">
+        <a href="https://www.linkedin.com/in/vivekrahal205/" target="_blank" title="LinkedIn">in</a>
+        <a href="https://github.com/VivekRahal" target="_blank" title="GitHub">&lt;/&gt;</a>
+        <a href="mailto:rahalvivek205@gmail.com" title="Email">@</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="float-badge fb1">🔍 Vector Search</div>
+      <div class="float-badge fb2">⚡ Real-time Inference</div>
+      <div class="float-badge fb3">🎯 PyTorch + FastAPI</div>
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="avatar">VK</div>
+          <div>
+            <div class="hero-card-name">Vivek Kumar Singh</div>
+            <div class="hero-card-title">ML Engineer · Salford, UK</div>
+          </div>
+        </div>
+        <div class="code-block">
+          <span class="cmt"># What I do daily</span><br>
+          <span class="kw">class</span> MLEngineer:<br>
+          &nbsp;&nbsp;skills = [<span class="str">"PyTorch"</span>, <span class="str">"FastAPI"</span>, <span class="str">"AWS"</span>]<br>
+          &nbsp;&nbsp;focus = <span class="str">"search &amp; ranking"</span><br>
+          &nbsp;&nbsp;passion = <span class="str">"shipping ML to prod"</span><br>
+        </div>
+        <div class="mini-stats">
+          <div class="mini-stat"><div class="num">4+</div><div class="lbl">Years Eng.</div></div>
+          <div class="mini-stat"><div class="num">2+</div><div class="lbl">Years ML</div></div>
+          <div class="mini-stat"><div class="num">MSc</div><div class="lbl">AI</div></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="section" id="about">
+<section class="section about-section" id="about">
   <div class="section-inner reveal">
-    <div class="section-label">01 — About</div>
-    <div class="section-title">Vivek Kumar Singh</div>
-    <div class="divider"></div>
-    <div class="about-grid">
+    <div class="section-header">
+      <div class="section-num">01 — ABOUT</div>
+      <div class="section-title">A bit about me</div>
+      <div class="accent-line"><span class="al1"></span><span class="al2"></span><span class="al3"></span></div>
+    </div>
+    <div class="about-layout">
       <div class="about-text">
-        <p>I'm a <strong>Python ML Engineer</strong> passionate about building production ML systems — particularly <strong>search ranking, image embeddings, and recommendation pipelines</strong> that serve millions of users.</p>
-        <p>I've shipped an end-to-end AI product (<strong>HouseSurvey AI</strong>) featuring vector similarity retrieval and computer vision, and spent 2 years at <strong>Entain</strong> building backend services for a platform serving millions of daily active users.</p>
-        <p>Currently completing my <strong>MSc in Artificial Intelligence</strong> at the University of Salford, with deep focus on deep learning, NLP, computer vision, and ranking systems.</p>
+        <p>I'm a <strong>Python ML Engineer</strong> who loves taking models from notebook to production. My sweet spot is <strong>search ranking, image embeddings, and recommendation pipelines</strong> that serve real users at scale.</p>
+        <p>I built <strong>HouseSurvey AI</strong> from scratch — a production system with computer vision, vector similarity retrieval, and real-time inference on AWS. Before that, I spent 2 years at <strong>Entain</strong> building backend services for a platform with millions of daily users.</p>
+        <p>Currently finishing my <strong>MSc in Artificial Intelligence</strong> at the University of Salford, diving deep into deep learning, NLP, and ranking systems.</p>
       </div>
-      <div class="stats">
-        <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Years Engineering</div></div>
-        <div class="stat"><div class="stat-num">2+</div><div class="stat-label">Years ML / AI</div></div>
-        <div class="stat"><div class="stat-num">35%</div><div class="stat-label">Latency Reduction</div></div>
-        <div class="stat"><div class="stat-num">MSc</div><div class="stat-label">Artificial Intelligence</div></div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <div class="hc-icon gi">🚀</div>
+          <div><div class="hc-title">Production ML</div><div class="hc-desc">Shipped AI products with real-time inference, vector search, and monitoring on AWS</div></div>
+        </div>
+        <div class="highlight-card">
+          <div class="hc-icon yi">📊</div>
+          <div><div class="hc-title">Scale Experience</div><div class="hc-desc">Built services handling millions of users, reduced latency 35% via caching optimisation</div></div>
+        </div>
+        <div class="highlight-card">
+          <div class="hc-icon gi">🧪</div>
+          <div><div class="hc-title">Engineering Rigour</div><div class="hc-desc">CI/CD, TDD with 90%+ coverage, Docker, structured logging, observability</div></div>
+        </div>
+        <div class="highlight-card">
+          <div class="hc-icon yi">🎓</div>
+          <div><div class="hc-title">MSc AI (Salford)</div><div class="hc-desc">Deep Learning, Computer Vision, NLP, ML — academic foundation meets practical delivery</div></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SKILLS -->
-<section class="section" id="skills" style="background:var(--bg2)">
+<section class="section" id="skills">
   <div class="section-inner reveal">
-    <div class="section-label">02 — Technical Skills</div>
-    <div class="section-title">What I Work With</div>
-    <div class="divider"></div>
-    <div class="skills-grid">
+    <div class="section-header">
+      <div class="section-num">02 — SKILLS</div>
+      <div class="section-title">What I work with</div>
+      <div class="accent-line"><span class="al1"></span><span class="al2"></span><span class="al3"></span></div>
+    </div>
+    <div class="skills-wrap">
       <div class="skill-card">
-        <h3><span class="icon">⚡</span> ML & Deep Learning</h3>
-        <div class="skill-tags">
-          <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">scikit-learn</span><span class="tag">LangChain</span><span class="tag">Image Embeddings</span><span class="tag">kNN / ANN</span><span class="tag">Learning-to-Rank</span>
+        <div class="sk-title"><span class="sk-emoji">⚡</span> ML & Deep Learning</div>
+        <div class="sk-tags">
+          <span class="sk-tag">PyTorch</span><span class="sk-tag">TensorFlow</span><span class="sk-tag">scikit-learn</span><span class="sk-tag">LangChain</span><span class="sk-tag">Image Embeddings</span><span class="sk-tag">kNN / ANN</span><span class="sk-tag">Learning-to-Rank</span>
         </div>
       </div>
       <div class="skill-card">
-        <h3><span class="icon">🔍</span> Search & Retrieval</h3>
-        <div class="skill-tags">
-          <span class="tag">Vector Search</span><span class="tag">ChromaDB</span><span class="tag">OpenSearch</span><span class="tag">Cosine Similarity</span><span class="tag">RAG</span><span class="tag">Content Filtering</span>
+        <div class="sk-title"><span class="sk-emoji">🔍</span> Search & Retrieval</div>
+        <div class="sk-tags">
+          <span class="sk-tag">Vector Search</span><span class="sk-tag">ChromaDB</span><span class="sk-tag">OpenSearch</span><span class="sk-tag">Cosine Similarity</span><span class="sk-tag">RAG</span><span class="sk-tag">Content Filtering</span>
         </div>
       </div>
       <div class="skill-card">
-        <h3><span class="icon">🛠</span> Backend & APIs</h3>
-        <div class="skill-tags">
-          <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">REST APIs</span>
+        <div class="sk-title"><span class="sk-emoji">🛠</span> Backend & APIs</div>
+        <div class="sk-tags">
+          <span class="sk-tag">Python</span><span class="sk-tag">FastAPI</span><span class="sk-tag">Flask</span><span class="sk-tag">PostgreSQL</span><span class="sk-tag">MongoDB</span><span class="sk-tag">Redis</span>
         </div>
       </div>
       <div class="skill-card">
-        <h3><span class="icon">☁</span> MLOps & Infrastructure</h3>
-        <div class="skill-tags">
-          <span class="tag">AWS</span><span class="tag">SageMaker</span><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">MLflow</span><span class="tag">ELK</span><span class="tag">GitHub Actions</span>
+        <div class="sk-title"><span class="sk-emoji">☁️</span> MLOps & Cloud</div>
+        <div class="sk-tags">
+          <span class="sk-tag">AWS</span><span class="sk-tag">SageMaker</span><span class="sk-tag">Docker</span><span class="sk-tag">CI/CD</span><span class="sk-tag">MLflow</span><span class="sk-tag">GitHub Actions</span>
         </div>
       </div>
       <div class="skill-card">
-        <h3><span class="icon">📊</span> Data Engineering</h3>
-        <div class="skill-tags">
-          <span class="tag">PySpark</span><span class="tag">Kafka</span><span class="tag">Airflow</span><span class="tag">ETL Pipelines</span><span class="tag">Batch Processing</span>
+        <div class="sk-title"><span class="sk-emoji">📊</span> Data Pipelines</div>
+        <div class="sk-tags">
+          <span class="sk-tag">PySpark</span><span class="sk-tag">Kafka</span><span class="sk-tag">Airflow</span><span class="sk-tag">ETL</span><span class="sk-tag">Batch Processing</span>
         </div>
       </div>
       <div class="skill-card">
-        <h3><span class="icon">✓</span> Engineering Practices</h3>
-        <div class="skill-tags">
-          <span class="tag">TDD (PyTest)</span><span class="tag">90%+ Coverage</span><span class="tag">Agile</span><span class="tag">Pair Programming</span><span class="tag">Observability</span>
+        <div class="sk-title"><span class="sk-emoji">✅</span> Practices</div>
+        <div class="sk-tags">
+          <span class="sk-tag">TDD (PyTest)</span><span class="sk-tag">90%+ Coverage</span><span class="sk-tag">Agile</span><span class="sk-tag">ELK</span><span class="sk-tag">Monitoring</span>
         </div>
       </div>
     </div>
@@ -255,49 +383,69 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;opacity:.025;b
 </section>
 
 <!-- EXPERIENCE -->
-<section class="section" id="experience">
+<section class="section exp-section" id="experience">
   <div class="section-inner reveal">
-    <div class="section-label">03 — Experience</div>
-    <div class="section-title">Where I've Worked</div>
-    <div class="divider"></div>
-    <div class="timeline">
+    <div class="section-header">
+      <div class="section-num">03 — EXPERIENCE</div>
+      <div class="section-title">Where I've worked</div>
+      <div class="accent-line"><span class="al1"></span><span class="al2"></span><span class="al3"></span></div>
+    </div>
+    <div class="exp-list">
 
-      <div class="timeline-item">
-        <div class="timeline-role">Founder & ML Engineer</div>
-        <div class="timeline-company">HouseSurvey AI — Salford, UK</div>
-        <div class="timeline-date">Jan 2025 — Present</div>
-        <div class="timeline-desc">
-          <ul>
-            <li>Built end-to-end product-matching pipeline: image classification (LLaVA/PyTorch) → vector embedding retrieval (cosine similarity) → enriched output on AWS.</li>
-            <li>Developed image embedding service with nearest-neighbour retrieval (LangChain + ChromaDB) serving real-time inference via FastAPI.</li>
-            <li>Full production deployment: CI/CD, TDD (90%+ coverage), structured logging, monitoring, automated deployment on EC2.</li>
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-date">JAN 2025 — PRESENT</div>
+          <div class="exp-company">HouseSurvey AI</div>
+          <div class="exp-loc">Salford, UK</div>
+        </div>
+        <div>
+          <div class="exp-role">Founder & ML Engineer</div>
+          <ul class="exp-bullets">
+            <li>Built end-to-end product-matching pipeline: image classification (LLaVA/PyTorch) → vector embedding retrieval → enriched output. Deployed on AWS.</li>
+            <li>Developed image embedding service with nearest-neighbour retrieval (LangChain + ChromaDB) for product search & ranking.</li>
+            <li>Production FastAPI with real-time inference, CI/CD, TDD (90%+ coverage), structured logging, monitoring.</li>
           </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">PyTorch</span><span class="exp-tag">FastAPI</span><span class="exp-tag">LangChain</span><span class="exp-tag">ChromaDB</span><span class="exp-tag">AWS</span><span class="exp-tag">MongoDB</span>
+          </div>
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-role">Software Engineer</div>
-        <div class="timeline-company">Entain — Hyderabad, India</div>
-        <div class="timeline-date">Dec 2021 — Dec 2023</div>
-        <div class="timeline-desc">
-          <ul>
-            <li>Built Python backend services (FastAPI, Flask) for platform serving millions of daily active users with thousands of concurrent requests.</li>
-            <li>Reduced p95 latency 35% via Redis caching & service optimisation — critical for low-latency personalised experiences.</li>
-            <li>Feature engineering for user-behaviour ML: implicit feedback, engagement prediction, session-based features feeding ranking models.</li>
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-date">DEC 2021 — DEC 2023</div>
+          <div class="exp-company">Entain</div>
+          <div class="exp-loc">Hyderabad, India</div>
+        </div>
+        <div>
+          <div class="exp-role">Software Engineer</div>
+          <ul class="exp-bullets">
+            <li>Python backend services (FastAPI, Flask) for platform serving millions of daily active users.</li>
+            <li>Reduced p95 latency 35% via Redis caching & optimisation for low-latency personalisation.</li>
+            <li>Feature engineering for user-behaviour ML: implicit feedback, engagement prediction, session features.</li>
             <li>PySpark batch pipelines processing user interaction datasets at scale.</li>
-            <li>ELK observability stack — real-time monitoring, alerting, incident response.</li>
+            <li>ELK observability — real-time monitoring, alerting, incident response.</li>
           </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">FastAPI</span><span class="exp-tag">Flask</span><span class="exp-tag">Redis</span><span class="exp-tag">PySpark</span><span class="exp-tag">Docker</span><span class="exp-tag">ELK</span>
+          </div>
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-role">Software Engineer</div>
-        <div class="timeline-company">Adventz Group — India</div>
-        <div class="timeline-date">Aug 2018 — Dec 2020</div>
-        <div class="timeline-desc">
-          <ul>
-            <li>Python data applications achieving 70% faster reporting. Built batch ETL pipelines (PostgreSQL) saving 15+ hours per week.</li>
+      <div class="exp-item">
+        <div class="exp-left">
+          <div class="exp-date">AUG 2018 — DEC 2020</div>
+          <div class="exp-company">Adventz Group</div>
+          <div class="exp-loc">India</div>
+        </div>
+        <div>
+          <div class="exp-role">Software Engineer</div>
+          <ul class="exp-bullets">
+            <li>Python data applications (70% faster reporting). Batch ETL pipelines saving 15+ hours/week.</li>
           </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Python</span><span class="exp-tag">PostgreSQL</span><span class="exp-tag">ETL</span><span class="exp-tag">Agile</span>
+          </div>
         </div>
       </div>
 
@@ -306,47 +454,43 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;opacity:.025;b
 </section>
 
 <!-- PROJECTS -->
-<section class="section" id="projects" style="background:var(--bg2)">
+<section class="section" id="projects">
   <div class="section-inner reveal">
-    <div class="section-label">04 — Projects</div>
-    <div class="section-title">Selected Work</div>
-    <div class="divider"></div>
+    <div class="section-header">
+      <div class="section-num">04 — PROJECTS</div>
+      <div class="section-title">Selected work</div>
+      <div class="accent-line"><span class="al1"></span><span class="al2"></span><span class="al3"></span></div>
+    </div>
     <div class="projects-grid">
 
-      <div class="project-card">
-        <div class="project-num">01</div>
-        <div class="project-info">
+      <div class="proj-card">
+        <div class="proj-num-wrap"><div class="proj-num">01</div><div class="proj-dot"></div></div>
+        <div class="proj-info">
           <h3>HouseSurvey AI</h3>
-          <p>Full-stack AI product: PyTorch computer vision → image embedding → vector similarity retrieval (ChromaDB) → regulation-enriched report generation. Solo-built and deployed on AWS serving real users.</p>
-          <div class="project-tech">
-            <span class="tag">PyTorch</span><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">AWS</span><span class="tag">MongoDB</span>
-          </div>
+          <p>Full-stack AI product: PyTorch computer vision → image embedding → vector similarity retrieval (ChromaDB) → regulation-enriched report. Solo-built, deployed on AWS serving real users.</p>
+          <div class="proj-tags"><span class="sk-tag">PyTorch</span><span class="sk-tag">FastAPI</span><span class="sk-tag">LangChain</span><span class="sk-tag">ChromaDB</span><span class="sk-tag">AWS</span></div>
         </div>
-        <div class="project-link"><a href="https://pro-aws.housesurveyai.co.uk/" target="_blank" title="Visit">↗</a></div>
+        <div class="proj-link"><a href="https://pro-aws.housesurveyai.co.uk/" target="_blank">↗</a></div>
       </div>
 
-      <div class="project-card">
-        <div class="project-num">02</div>
-        <div class="project-info">
+      <div class="proj-card">
+        <div class="proj-num-wrap"><div class="proj-num">02</div><div class="proj-dot"></div></div>
+        <div class="proj-info">
           <h3>Visual Question Answering</h3>
-          <p>Multimodal retrieval pipeline using ViT + BERT with cross-modal embeddings and ranking. Trained on DAQUAR dataset for image-grounded question answering.</p>
-          <div class="project-tech">
-            <span class="tag">PyTorch</span><span class="tag">ViT</span><span class="tag">BERT</span><span class="tag">Cross-Attention</span><span class="tag">Embeddings</span>
-          </div>
+          <p>Multimodal retrieval pipeline using ViT + BERT with cross-modal embeddings and ranking. Image-grounded question answering on DAQUAR dataset.</p>
+          <div class="proj-tags"><span class="sk-tag">PyTorch</span><span class="sk-tag">ViT</span><span class="sk-tag">BERT</span><span class="sk-tag">Cross-Attention</span></div>
         </div>
-        <div class="project-link"><a href="https://github.com/VivekRahal/VQA" target="_blank" title="GitHub">↗</a></div>
+        <div class="proj-link"><a href="https://github.com/VivekRahal/VQA" target="_blank">↗</a></div>
       </div>
 
-      <div class="project-card">
-        <div class="project-num">03</div>
-        <div class="project-info">
+      <div class="proj-card">
+        <div class="proj-num-wrap"><div class="proj-num">03</div><div class="proj-dot"></div></div>
+        <div class="proj-info">
           <h3>Safety Detection System</h3>
-          <p>YOLO v9 lightweight classifier for PPE detection. Trained on 1132 annotated images. Real-time object detection pipeline with scikit-learn post-processing.</p>
-          <div class="project-tech">
-            <span class="tag">YOLO v9</span><span class="tag">PyTorch</span><span class="tag">scikit-learn</span><span class="tag">Computer Vision</span>
-          </div>
+          <p>YOLO v9 lightweight classifier for PPE detection. Trained on 1132 annotated images with real-time object detection pipeline.</p>
+          <div class="proj-tags"><span class="sk-tag">YOLO v9</span><span class="sk-tag">PyTorch</span><span class="sk-tag">scikit-learn</span><span class="sk-tag">CV</span></div>
         </div>
-        <div class="project-link"><a href="https://github.com/VivekRahal/Computer-vision/blob/main/vivekkumar__singh.ipynb" target="_blank" title="GitHub">↗</a></div>
+        <div class="proj-link"><a href="https://github.com/VivekRahal/Computer-vision/blob/main/vivekkumar__singh.ipynb" target="_blank">↗</a></div>
       </div>
 
     </div>
@@ -354,65 +498,70 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;opacity:.025;b
 </section>
 
 <!-- EDUCATION -->
-<section class="section" id="education">
+<section class="section edu-section" id="education">
   <div class="section-inner reveal">
-    <div class="section-label">05 — Education</div>
-    <div class="section-title">Academic Background</div>
-    <div class="divider"></div>
-    <div class="edu-list">
-      <div class="edu-item">
+    <div class="section-header">
+      <div class="section-num">05 — EDUCATION</div>
+      <div class="section-title">Academic background</div>
+      <div class="accent-line"><span class="al1"></span><span class="al2"></span><span class="al3"></span></div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
         <div>
           <h3>MSc Artificial Intelligence</h3>
-          <div class="school">University of Salford</div>
-          <div class="focus">Deep Learning · Computer Vision · NLP · ML · Ranking & Search</div>
+          <div class="edu-school">University of Salford</div>
+          <div class="edu-focus">Deep Learning · Computer Vision · NLP · ML · Ranking & Search</div>
         </div>
-        <div class="edu-date">2024 — 2025</div>
+        <div class="edu-year">2024 — 2025</div>
       </div>
-      <div class="edu-item">
+      <div class="edu-card">
         <div>
           <h3>PG Diploma in Big Data Analytics</h3>
-          <div class="school">C-DAC Pune</div>
-          <div class="focus">Spark · PySpark · Hadoop</div>
+          <div class="edu-school">C-DAC Pune</div>
+          <div class="edu-focus">Spark · PySpark · Hadoop</div>
         </div>
-        <div class="edu-date">2021</div>
+        <div class="edu-year">2021</div>
       </div>
-      <div class="edu-item">
+      <div class="edu-card">
         <div>
           <h3>B.Tech in Electrical & Electronics</h3>
-          <div class="school">Krishna Engineering College</div>
+          <div class="edu-school">Krishna Engineering College</div>
         </div>
-        <div class="edu-date">2012 — 2016</div>
+        <div class="edu-year">2012 — 2016</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="section contact-section" id="contact">
+<section class="section" id="contact">
   <div class="section-inner reveal">
-    <div class="section-label">06 — Contact</div>
-    <div class="section-title">Let's Connect</div>
-    <div class="divider"></div>
-    <div class="contact-grid">
+    <div class="section-header">
+      <div class="section-num">06 — CONTACT</div>
+      <div class="section-title">Let's connect</div>
+      <div class="accent-line"><span class="al1"></span><span class="al2"></span><span class="al3"></span></div>
+    </div>
+    <div class="contact-wrap">
       <div>
-        <p style="color:var(--text-dim);font-size:.95rem;margin-bottom:1.5rem;max-width:400px">I'm actively looking for ML Engineer roles in the UK. If you're building search, ranking, or personalisation systems — I'd love to talk.</p>
+        <p class="contact-text">I'm actively looking for <em>ML Engineer roles</em> in the UK. If you're building search, ranking, or personalisation systems — I'd love to hear from you.</p>
+        <p style="color:var(--text-muted);font-size:.82rem">Based in Salford, UK · Open to London hybrid roles</p>
       </div>
-      <div class="contact-links">
-        <a href="mailto:rahalvivek205@gmail.com" class="contact-link">
-          <span class="c-icon">✉</span>
-          <div><span class="c-label">Email</span><span class="c-value">rahalvivek205@gmail.com</span></div>
+      <div class="contact-cards">
+        <a href="mailto:rahalvivek205@gmail.com" class="cc">
+          <div class="cc-icon em">✉</div>
+          <div><div class="cc-label">Email</div><div class="cc-value">rahalvivek205@gmail.com</div></div>
         </a>
-        <a href="tel:+447359929012" class="contact-link">
-          <span class="c-icon">☎</span>
-          <div><span class="c-label">Phone</span><span class="c-value">+44 7359 929 012</span></div>
+        <a href="tel:+447359929012" class="cc">
+          <div class="cc-icon ph">☎</div>
+          <div><div class="cc-label">Phone</div><div class="cc-value">+44 7359 929 012</div></div>
         </a>
-        <a href="https://www.linkedin.com/in/vivekrahal205/" target="_blank" class="contact-link">
-          <span class="c-icon">in</span>
-          <div><span class="c-label">LinkedIn</span><span class="c-value">vivekrahal205</span></div>
+        <a href="https://www.linkedin.com/in/vivekrahal205/" target="_blank" class="cc">
+          <div class="cc-icon li">in</div>
+          <div><div class="cc-label">LinkedIn</div><div class="cc-value">vivekrahal205</div></div>
         </a>
-        <a href="https://github.com/VivekRahal" target="_blank" class="contact-link">
-          <span class="c-icon">&lt;/&gt;</span>
-          <div><span class="c-label">GitHub</span><span class="c-value">VivekRahal</span></div>
+        <a href="https://github.com/VivekRahal" target="_blank" class="cc">
+          <div class="cc-icon gh">&lt;/&gt;</div>
+          <div><div class="cc-label">GitHub</div><div class="cc-value">VivekRahal</div></div>
         </a>
       </div>
     </div>
@@ -420,30 +569,22 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;opacity:.025;b
 </section>
 
 <footer>
-  <p>© 2025 Vivek Kumar Singh. Built with care.</p>
+  <div class="footer-inner">
+    <div class="footer-text">© 2025 Vivek Kumar Singh</div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/vivekrahal205/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/VivekRahal" target="_blank">GitHub</a>
+      <a href="mailto:rahalvivek205@gmail.com">Email</a>
+    </div>
+  </div>
 </footer>
 
 <script>
-// Nav scroll effect
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// Reveal on scroll
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
-}, { threshold: 0.1 });
-reveals.forEach(el => observer.observe(el));
-
-// Smooth scroll for nav links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-  });
-});
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>50));
+const observer=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');observer.unobserve(el.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
 </script>
 </body>
 </html>
